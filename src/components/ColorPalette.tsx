@@ -20,6 +20,12 @@ export const ColorPalette = ({ palette }: ColorPaletteProps) => {
 
   return (
     <div className="mb-8 p-6 rounded-lg shadow-lg bg-white">
+      <div className="flex items-center gap-2 mb-4">
+        <svg className="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
+          <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
+        </svg>
+        <span className="text-gray-700 font-medium">{palette.likes}</span>
+      </div>
       <div className="flex h-40 rounded-md overflow-hidden">
         {palette.colors.map((color, index) => (
           <div
@@ -29,7 +35,7 @@ export const ColorPalette = ({ palette }: ColorPaletteProps) => {
             onClick={() => copyToClipboard(color, index)}
           >
             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/20">
-              <div className="bg-white/90 px-3 py-2 rounded-lg text-sm font-medium shadow-lg">
+              <div className="bg-white/90 px-3 py-2 rounded-lg text-sm font-medium shadow-lg text-black">
                 {copiedIndex === index ? (
                   <div className="flex items-center gap-2">
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -52,10 +58,6 @@ export const ColorPalette = ({ palette }: ColorPaletteProps) => {
             </div>
           </div>
         ))}
-      </div>
-      <div className="text-sm text-gray-600">
-        <p>Likes: {palette.likes}</p>
-        <p>Tags: {palette.tags.join(', ')}</p>
       </div>
     </div>
   );

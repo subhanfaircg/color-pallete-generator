@@ -55,7 +55,7 @@ export const ColorMultiSelect = ({ colors, selectedColors, onChange }: ColorMult
                   className="w-4 h-4 rounded-full border border-gray-300"
                   style={{ backgroundColor: color.hex }}
                 />
-                <span className="text-sm">{color.name}</span>
+                <span className="text-sm text-black font-medium">{color.name}</span>
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
@@ -88,7 +88,7 @@ export const ColorMultiSelect = ({ colors, selectedColors, onChange }: ColorMult
                 style={{ backgroundColor: color.hex }}
               />
               <div className="flex-1">
-                <div className="font-medium">{color.name}</div>
+                <div className="font-medium text-black">{color.name}</div>
                 <div className="text-sm text-gray-500">{color.hex}</div>
               </div>
               {selectedColors.includes(color.value) && (
